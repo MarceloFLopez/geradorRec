@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,70 +8,72 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      
-    }
-    .container {
-      width: 80%;
-      margin: 50px auto;
-      border: 1px solid #ccc;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center; /* Centraliza todo o conteúdo */
-    }
-    h1 {
-      text-align: center; /* Centraliza todo o conteúdo */
-      font-size: 50px; /* Aumenta o tamanho do título */
-      margin-bottom: 20px; /* Aumenta o espaço abaixo do título */
-    }
-    .dados {
-      font-size: 18px; /* Ajusta o tamanho do texto dos dados */
+
     }
 
+    .container {
+      width: auto;
+      height: 80%;
+      margin: 0;
+      padding: 0px;
+      /*text-align: center;*/
+      /* Centraliza todo o conteúdo */
+
+    }
+
+    h1 {
+      text-align: center;
+      /* Centraliza todo o conteúdo */
+      margin-bottom: 5px;
+      /* Aumenta o espaço abaixo do título */
+    }
+
+    .dados {
+      font-size: 18px;
+      /* Ajusta o tamanho do texto dos dados */
+    }
   </style>
 </head>
-<body>
 
- <h1 text-align: center;>Receituario de Controle Especial</h1>
- <hr> 
- <div class="container">
-  
+<body onload="exibirDataAtual();">
 
-</br>
-<div class="dados" id="dadosPaciente">
-      <!-- Dados serão inseridos aqui via JavaScript -->
+  <div class="container">
+    <h1 text-align: center;>Receituario de Controle Especial</h1>
+  <div class="card text-center">
+    <div class="card-body" style="text-align: center;">
+      <h5 class="card-title">Nome da clinica aqui</h5>
+      <p class="card-text">Endereço clinica aqui</p>
     </div>
-   
   </div>
- 
-</br>
- <hr>
-<div class="card text-center" style="margint-top: 100%">
-  <div class="card-header">
-    Featured
+  <hr>
+
+  </br>
+  <div class="text-center">
+    <div style="text-align: center; margin: -30px 0px 0px 0px;">
+      <h2 >Dados do Paciente</h2>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-   
+  <div id="dadosPaciente" style="margin-top: 10px;">
+    <!-- Dados serão inseridos aqui via JavaScript -->
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
+  </br>
+  <hr>
+  <div class="text-center">
+    <div style="text-align: center; margin-top: 10px;">
+      <h2 >Prescrição</h2>
+    </div>
   </div>
-</div>
-<hr>
-<div class="card text-center" style="margint-top: 100%">
-  <div class="card-header">
-    Featured
+
+  
+  <div class="footer">
+    <hr>
+    <div class="card-body" style="text-align: end;  bottom: 0;
+    position: fixed;">
+    <hr>
+      <p class="card-text">Página 1 - Data:<span id="dataAtual"></span></p>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-   
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
   <script>
     // Recupera os dados do localStorage
     const dados = JSON.parse(localStorage.getItem('dadosPaciente'));
@@ -80,11 +83,35 @@
     if (dados) {
       dadosPacienteDiv.innerHTML = `
         <p><strong>Paciente:</strong> ${dados.nomePaciente}              
-	<strong>Idade:</strong> ${dados.idade}
-</p>
-        <p><strong>Endereço:</strong> ${dados.endereco}</p>
-      `;
+	      <strong style="margin-left: 50%;">Idade:</strong> ${dados.idade} </p>
+        <p style="margin-bottom: -10px"><strong>Endereço:</strong> ${dados.endereco}</p>`;
+    }
+  </script>
+  <!-- Scripts JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- ATENÇÃO -- Adicionar a URL do caminho do arquivo JS se não o html não vai funcionar -->
+  <script src="../frontend.js"></script>
+
+  <script>
+    // Função para obter a data atual formatada como dd/MM/yyyy
+    function getDataAtualFormatada() {
+      var data = new Date();
+
+      var dia = data.getDate().toString().padStart(2, '0');
+      var mes = (data.getMonth() + 1).toString().padStart(2, '0');
+      var ano = data.getFullYear();
+
+      return dia + '/' + mes + '/' + ano;
+    }
+
+    // Função para exibir a data formatada na página
+    function exibirDataAtual() {
+      var dataAtual = getDataAtualFormatada();
+      var elementoData = document.getElementById('dataAtual');
+      elementoData.textContent = dataAtual;
     }
   </script>
 </body>
+
 </html>
