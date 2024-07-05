@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Dados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center; /* Centraliza todo o conteúdo */
+    }
+    h1 {
+      text-align: center; /* Centraliza todo o conteúdo */
+      font-size: 50px; /* Aumenta o tamanho do título */
+      margin-bottom: 20px; /* Aumenta o espaço abaixo do título */
+    }
+    .dados {
+      font-size: 18px; /* Ajusta o tamanho do texto dos dados */
+    }
+
+  </style>
+</head>
+<body>
+
+ <h1 text-align: center;>Receituario de Controle Especial</h1>
+ <hr> 
+ <div class="container">
+  
+
+</br>
+<div class="dados" id="dadosPaciente">
+      <!-- Dados serão inseridos aqui via JavaScript -->
+    </div>
+   
+  </div>
+ 
+</br>
+ <hr>
+<div class="card text-center" style="margint-top: 100%">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+   
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+<hr>
+<div class="card text-center" style="margint-top: 100%">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+   
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+  <script>
+    // Recupera os dados do localStorage
+    const dados = JSON.parse(localStorage.getItem('dadosPaciente'));
+
+    // Exibe os dados na div de dados
+    const dadosPacienteDiv = document.getElementById('dadosPaciente');
+    if (dados) {
+      dadosPacienteDiv.innerHTML = `
+        <p><strong>Paciente:</strong> ${dados.nomePaciente}              
+	<strong>Idade:</strong> ${dados.idade}
+</p>
+        <p><strong>Endereço:</strong> ${dados.endereco}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
