@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+.container {
+    width: auto;
+    height: 80%;
+    margin: 0;
+    padding: 0px;
+    /*text-align: center;*/
+    /* Centraliza todo o conteúdo */
+
+}
+
+h1 {
+    text-align: center;
+    /* Centraliza todo o conteúdo */
+    margin-bottom: 5px;
+    /* Aumenta o espaço abaixo do título */
+}
+
+.dados {
+    font-size: 18px;
+    /* Ajusta o tamanho do texto dos dados */
+}
+
+.footer{
+    bottom: 0;
+    position: fixed;
+    width: 99%;
+    text-align: right;
+}
+.conteudo{
+    background-color: red;
+    display: flex;
+}
+
+.medic-field{
+    bottom: 1;
+    width: 99%;
+    text-align: right;
+    font-family: cursive;
+}
+hr_medic{
+    width: 20%;
+    height: 1px;
+    color: black;
+    margin: 0 auto;
+    align: right
+}

@@ -5,73 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualizar Dados</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-
-    }
-
-    .container {
-      width: auto;
-      height: 80%;
-      margin: 0;
-      padding: 0px;
-      /*text-align: center;*/
-      /* Centraliza todo o conteúdo */
-
-    }
-
-    h1 {
-      text-align: center;
-      /* Centraliza todo o conteúdo */
-      margin-bottom: 5px;
-      /* Aumenta o espaço abaixo do título */
-    }
-
-    .dados {
-      font-size: 18px;
-      /* Ajusta o tamanho do texto dos dados */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="exibirDataAtual();">
 
   <div class="container">
     <h1 text-align: center;>Receituario de Controle Especial</h1>
-  <div class="card text-center">
-    <div class="card-body" style="text-align: center;">
-      <h5 class="card-title">Nome da clinica aqui</h5>
-      <p class="card-text">Endereço clinica aqui</p>
+    <div class="card text-center">
+      <div class="card-body" style="text-align: center;">
+        <h5 class="card-title">Nome da clinica aqui</h5>
+        <p class="card-text">Endereço clinica aqui</p>
+      </div>
     </div>
-  </div>
-  <hr>
+    <hr>
 
-  </br>
-  <div class="text-center">
-    <div style="text-align: center; margin: -30px 0px 0px 0px;">
-      <h2 >Dados do Paciente</h2>
+    </br>
+    <div class="text-center">
+      <div style="text-align: center; margin: -30px 0px 0px 0px;">
+        <h2>Dados do Paciente</h2>
+      </div>
     </div>
-  </div>
-  <div id="dadosPaciente" style="margin-top: 10px;">
-    <!-- Dados serão inseridos aqui via JavaScript -->
-  </div>
-  </br>
-  <hr>
-  <div class="text-center">
-    <div style="text-align: center; margin-top: 10px;">
-      <h2 >Prescrição</h2>
+    <div id="dadosPaciente" style="margin-top: 10px;">
+      <!-- Dados serão inseridos aqui via JavaScript -->
     </div>
-  </div>
+    </br>
+    <hr>
+    <div class="text-center">
+      <div style="text-align: center; margin-top: 10px;">
+        <h2>Prescrição</h2>
+      </div>
+    </div>
+    <div>
+      <br><br><br>
+      <div class="conteudo">
+        <p>Conteudo aqui</p>
+      </div>
 
-  
+    </div>
+    <div class="medic-field">     
+      <div style="text-align: end;">
+        <p>Nome do Medico <br style="margin-right: 10px;">crm:1111111</p>
+      
+
+      </div>
+    </div>
+    <div class="card text-center" style="margint-top: 100%">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+    </div>
+  </div>
   <div class="footer">
     <hr>
-    <div class="card-body" style="text-align: end;  bottom: 0;
-    position: fixed;">
-    <hr>
-      <p class="card-text">Página 1 - Data:<span id="dataAtual"></span></p>
-    </div>
+  </div>
+  <div class="footer">
+    <p class="card-text">Página 1 - Data:<span id="dataAtual"></span></p>
+  </div>
   </div>
   </div>
   <script>
