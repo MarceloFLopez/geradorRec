@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Dados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="exibirDataAtual();">
+  <div class="container">
+    <h1 style="text-align: center;">Receituario de Controle Especial</h1>
+    <div id="dadosClinica">
+    </div>
+    <hr>
+    <br>
+    <div class="text-center">
+      <div style="text-align: center; margin: -30px 0px 0px 0px;">
+        <h1>Dados do Paciente</h1>
+      </div>
+    </div>
+    <div id="dadosPaciente" style="margin-top: 10px;">
+      <!-- Dados serão inseridos aqui via JavaScript -->
+    </div>
+
+    <br>
+    <hr>
+    <div class="text-center" id="dadosPrescricao">
+      <!-- Dados da prescriçãoaqui via JavaScritp -->
+    </div>
+    
+  </div>
+
+  <div id="dadosMedico">
+    <!-- Dados do medico via JavaScritp -->
+  </div>
+  </div>
+ 
+  <div class="footer">
+    <hr>
+    <p class="card-text">Data: <span id="dataAtual"></span> - Página 1</p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Recupera os dados do localStorage
+    const dadosP = JSON.parse(localStorage.getItem('dadosPaciente'));
+    const dadosC = JSON.parse(localStorage.getItem('dadosClinica'));
+    const dadosM = JSON.parse(localStorage.getItem('dadosMedico'));
+    const dadosPR = JSON.parse(localStorage.getItem('dadosPrescricao'));
+
+    // Exibe os dados na div de dados
+    const dadosPacienteDiv = document.getElementById('dadosPaciente');
+    const dadosClinicaDiv = document.getElementById('dadosClinica');
+    const dadosMedicoDiv = document.getElementById('dadosMedico');
+    const dadosPrescricaoDiv = document.getElementById('dadosPrescricao');
+
+    if (dadosC) {
+      dadosClinicaDiv.innerHTML = `
+      <p>Clinica: ${dadosC.nomeClinica} Endereço:${dadosC.endereco}</p>              
+       <p>Telefone: ${dadosC.telefone}</p> 
+      `;
+    }
+
+    if (dadosP) {
+      dadosPacienteDiv.innerHTML = `
+        <p><strong>Paciente:</strong> ${dadosP.nomePaciente}              
+        <strong style="margin-left: 20%;">Idade:</strong> ${dadosP.idade} </p>
+        <p><strong>Endereço:</strong> ${dadosP.endereco}
+        <strong style="margin-left: 20%;">Número:</strong> ${dadosP.num_endereco} </p>`;
+    }
+
+    if (dadosM) {
+      dadosMedicoDiv.innerHTML = `
+      <div class="medic-field">
+      <div class="medic-field-name">${dadosM.nomeMedico} </div> 
+      <div class="medic-field-crm" style="margin-bottom: 10px; ">CRM: ${dadosM.crm}</div>
+      <div>_____________________</div>
+      <div class="medic-field-name">${dadosM.nomeMedico} </div>
+      <div class="medic-field-crm ">${dadosM.especialidade}</div>
+    </div>`;
+    }
+
+    if (dadosPR) {
+      dadosPrescricaoDiv.innerHTML = `
+        <Quatindade:>${dadosPR.medicamento}  Quatindade: ${dadosPR.qtd} ${dadosPR.apresentacao}
+        <p>${dadosPR.intervalo}</p>
+        `;
+    }
+    //executa o CTRL+P automaticamente
+    //window.print();
+  </script>
+
+  <!-- Scripts JavaScript -->
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script>
+    // Função para obter a data atual formatada como dd/MM/yyyy
+    function getDataAtualFormatada() {
+      var data = new Date();
+      var dia = data.getDate().toString().padStart(2, '0');
+      var mes = (data.getMonth() + 1).toString().padStart(2, '0');
+      var ano = data.getFullYear();
+      return dia + '/' + mes + '/' + ano;
+    }
+
+    // Função para exibir a data formatada na página
+    function exibirDataAtual() {
+      var dataAtual = getDataAtualFormatada();
+      var elementoData = document.getElementById('dataAtual');
+      elementoData.textContent = dataAtual;
+    }
+  </script>
+</body>
+
+</html>
