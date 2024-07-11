@@ -730,34 +730,43 @@ $(document).ready(function () {
   const dadosMedicos = [
     {
       nomeMedico: "Doutor Now",
-      crm: "111111",
+      crm: "11111",
       especialidade: "Clinico Geral"
     },
     {
       nomeMedico: "Doutor Who",
-      crm: "222222",
+      crm: "22222",
       especialidade: "Pediatra"
     },
     {
       nomeMedico: "Doutor House",
-      crm: "333333",
+      crm: "33333",
       especialidade: "Obstetra"
+    },
+    
+    {
+      nomeMedico: "Doutora Kudy",
+      crm: "44444",
+      especialidade: "Pediatra"
     },
     {
       nomeMedico: "Doutor Snoop Dog",
-      crm: "444444",
+      crm: "55555",
       especialidade: "Pneumologista"
     },
   ]
 
- 
+  // organizador de dados
+  dadosPacientes.sort((a, b) => a.idade - b.idade);
+  dadosMedicos.sort((a, b) => a.especialidade.localeCompare(b.especialidade));
+
   // Base dados Fim
 
   // Carrega a lista de pacientes na página inicial
   const listaPacientes = $('#listaPacientes');
   dadosPacientes.forEach((paciente, index) => {
     listaPacientes.append(`
-        <option value="${index}">Nome: ${paciente.nomePaciente} - Idade: ${paciente.idade} </option>
+        <option value="${index}">${paciente.idade} Nome: ${paciente.nomePaciente} </option>
       `);
   });
 
@@ -765,7 +774,7 @@ $(document).ready(function () {
   const listaClinicas = $('#listaClinicas');
   dadosClinicas.forEach((clinica, index) => {
     listaClinicas.append(`
-        <option value="${index}">Nome: ${clinica.nomeClinica}</option>
+        <option value="${index}">${clinica.nomeClinica}</option>
       `);
   });
 
@@ -773,7 +782,7 @@ $(document).ready(function () {
   const listaMedicos = $('#listaMedicos');
   dadosMedicos.forEach((medico, index) => {
     listaMedicos.append(`
-        <option value="${index}">Nome: ${medico.nomeMedico} - CRM: ${medico.crm} - Especialidade: ${medico.especialidade}</option>
+        <option value="${index}">${medico.especialidade} - Nome: ${medico.nomeMedico} - CRM: ${medico.crm} </option>
       `);
   });
 
@@ -816,7 +825,7 @@ $(document).ready(function () {
     localStorage.setItem('dadosPrescricao', JSON.stringify(dadosPrescricao));
 
     // Redireciona para a página de visualização
-    window.location.href = 'visualizar.html' ;
-    
+    window.location.href = 'visualizar.html';
+
   });
 });
