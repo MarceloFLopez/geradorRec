@@ -17,10 +17,11 @@ h1 {
     margin-bottom: 5px;
     /* Aumenta o espaço abaixo do título */
 }
-
-.dados {
-    font-size: 18px;
-    /* Ajusta o tamanho do texto dos dados */
+.text-end{
+    text-align: center;
+    /* Centraliza todo o conteúdo */
+    margin-bottom: 5px;
+    /* Aumenta o espaço abaixo do título */
 }
 
 .footer{
@@ -43,11 +44,24 @@ h1 {
 }
 
 .medic-field-name{
-    margin-left: 50px;
+    margin-left: 80px;
 }
 .medic-field-crm{
-    margin-left: 60px;
+    margin-left: 130px;
 }
+
+.medic-field-name-c{
+   margin-left: 90px;
+   font-family: Helvetica;
+   font-size: 25px;
+   font-weight: bold;
+}
+.medic-field-crm-c{
+    margin-left: 110px;
+    font-family: Helvetica;
+font-weight: bold;
+}
+
 hr_medic{
     width: 20%;
     height: 1px;
