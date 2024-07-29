@@ -6,109 +6,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualizar Dados</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body onload="exibirDataAtual();">
-
   <div class="container">
-    <h1 text-align: center;>Receituario de Controle Especial</h1>
-    <div class="card text-center">
-      <div class="card-body" style="text-align: center;">
-        <h5 class="card-title">Nome da clinica aqui</h5>
-        <p class="card-text">Endereço clinica aqui</p>
-      </div>
+    <div class="text-end">
+    <h1 style="text-align: center;">RECEITUÁRIO</h1>
+    <div id="dadosClinica">
     </div>
+  </div>
     <hr>
-
-    </br>
+    <br>
     <div class="text-center">
       <div style="text-align: center; margin: -30px 0px 0px 0px;">
-        <h2>Dados do Paciente</h2>
+        <h1>Dados do Paciente</h1>
       </div>
     </div>
+<br>
     <div id="dadosPaciente" style="margin-top: 10px;">
       <!-- Dados serão inseridos aqui via JavaScript -->
     </div>
-    </br>
+
+    <br>
     <hr>
-    <div class="text-center">
-      <div style="text-align: center; margin-top: 10px;">
-        <h2>Prescrição</h2>
+  <div class="text-center">
+      <div style="text-align: center; margin-top: 20px;">
+        <h1>Medicamento(s)</h1>
       </div>
     </div>
-    <div>
-      <br><br><br>
-      <div class="conteudo">
-        <p>Conteudo aqui</p>
-      </div>
-
+<br>
+    <div class="text-center" id="dadosPrescricao">
+      <!-- Dados da prescriçãoaqui via JavaScritp -->
     </div>
-    <div class="medic-field">     
-      <div style="text-align: end;">
-        <p>Nome do Medico <br style="margin-right: 10px;">crm:1111111</p>
-      
-
-      </div>
-    </div>
-    <div class="card text-center" style="margint-top: 100%">
-      <div class="card-header">
-        Featured
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
     
-      </div>
-      <div class="card-footer text-muted">
-        2 days ago
-      </div>
+  </div>
+
+ <div id="dadosMedico">
+    <!-- Dados do medico via JavaScritp -->
+  </div>
+  </div>
+ 
+  <div class="footer">
+      <hr>
+      <p class="card-text">Página 1 - Data:<span id="dataAtual"></span></p>
     </div>
   </div>
-  <div class="footer">
-    <hr>
-  </div>
-  <div class="footer">
-    <p class="card-text">Página 1 - Data:<span id="dataAtual"></span></p>
-  </div>
-  </div>
-  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     // Recupera os dados do localStorage
-    const dados = JSON.parse(localStorage.getItem('dadosPaciente'));
+    const dadosP = JSON.parse(localStorage.getItem('dadosPaciente'));
+    const dadosC = JSON.parse(localStorage.getItem('dadosClinica'));
+    const dadosM = JSON.parse(localStorage.getItem('dadosMedico'));
+    const dadosPR = JSON.parse(localStorage.getItem('dadosPrescricao'));
 
     // Exibe os dados na div de dados
     const dadosPacienteDiv = document.getElementById('dadosPaciente');
-    if (dados) {
-      dadosPacienteDiv.innerHTML = `
-        <p><strong>Paciente:</strong> ${dados.nomePaciente}              
-	      <strong style="margin-left: 50%;">Idade:</strong> ${dados.idade} </p>
-        <p style="margin-bottom: -10px"><strong>Endereço:</strong> ${dados.endereco}</p>`;
+    const dadosClinicaDiv = document.getElementById('dadosClinica');
+    const dadosMedicoDiv = document.getElementById('dadosMedico');
+    const dadosPrescricaoDiv = document.getElementById('dadosPrescricao');
+
+    if (dadosC) {
+      dadosClinicaDiv.innerHTML = `
+      <p>Clinica: ${dadosC.nomeClinica} Endereço:${dadosC.endereco}</p>              
+      <p>Telefone: ${dadosC.telefone}</p> 
+      `;
     }
+
+    if (dadosP) {
+      dadosPacienteDiv.innerHTML = `	
+     <div class="container2">
+        <div class="left-div">
+            <p><span class="label">Paciente:</span> ${dadosP.nomePaciente}</p>
+            <p><span class="label">Endereço:</span> ${dadosP.endereco}</p>
+        </div>
+        <div class="right-div">
+            <p><span class="label label-margin">Idade:</span> ${dadosP.idade} anos</p>
+            <p><span class="label label-margin">Número:</span> ${dadosP.num_endereco}</p>
+        </div>
+     </div>`;
+    }
+
+    if (dadosPR) {
+      dadosPrescricaoDiv.innerHTML = `
+     <div class="container2">
+        <div class="left-div">
+         <p><span class="label" style="font-size: 15px">Medicamento: </span> ${dadosPR.medicamento}  </p>
+         <p><span class="label">${dadosPR.intervalo}</p>
+        </div>
+        <div class="right-div">
+         <p><span class="label label-margin"> Quatindade: </span>${dadosPR.qtd} ${dadosPR.apresentacao}</p>
+	 <p><span class="label label-margin">Duração: </span>${dadosPR.qtd} ${dadosPR.apresentacao}</p>
+        </div>
+     </div>`;
+    }
+
+    if (dadosM) {
+      dadosMedicoDiv.innerHTML = `
+     <div class="medic-field">
+      <div class="medic-field-name-c">${dadosM.nomeMedico} </div> 
+      <div class="medic-field-crm-c">CRM: ${dadosM.crm}</div>
+      <div>_________________________________</div>
+      <div class="medic-field-name">${dadosM.nomeMedico}  ${dadosM.especialidade}</div>
+      <div class="medic-field-crm">${dadosM.especialidade} </div>
+    </div>`;
+    }
+
+    
+    //executa o CTRL+P automaticamente
+    window.print();
   </script>
+  
+
   <!-- Scripts JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- ATENÇÃO -- Adicionar a URL do caminho do arquivo JS se não o html não vai funcionar -->
-  <script src="../frontend.js"></script>
-
+  
   <script>
-    // Função para obter a data atual formatada como dd/MM/yyyy
-    function getDataAtualFormatada() {
-      var data = new Date();
-
-      var dia = data.getDate().toString().padStart(2, '0');
-      var mes = (data.getMonth() + 1).toString().padStart(2, '0');
-      var ano = data.getFullYear();
-
-      return dia + '/' + mes + '/' + ano;
-    }
-
-    // Função para exibir a data formatada na página
-    function exibirDataAtual() {
-      var dataAtual = getDataAtualFormatada();
-      var elementoData = document.getElementById('dataAtual');
-      elementoData.textContent = dataAtual;
-    }
+    
   </script>
 </body>
 

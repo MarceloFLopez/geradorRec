@@ -1,16 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-
 }
 
 .container {
     width: auto;
-    height: 80%;
     margin: 0;
     padding: 0px;
     /*text-align: center;*/
     /* Centraliza todo o conteúdo */
 
+}
+img{
+     background-image: url("logo.jpeg");
+     background-position: right center;
 }
 
 h1 {
@@ -19,17 +21,22 @@ h1 {
     margin-bottom: 5px;
     /* Aumenta o espaço abaixo do título */
 }
-
-.dados {
-    font-size: 18px;
-    /* Ajusta o tamanho do texto dos dados */
+.text-end{
+    text-align: center;
+    /* Centraliza todo o conteúdo */
+    margin-bottom: 5px;
+    /* Aumenta o espaço abaixo do título */
 }
 
-.footer{
-    bottom: 0;
-    position: fixed;
-    width: 99%;
-    text-align: right;
+.footer {
+    position: fixed; /* Fixa o footer na parte inferior */
+    bottom: 0; /* Posiciona o footer a 0 pixels do fundo */
+    left: 0; /* Garante que o footer esteja alinhado à esquerda da tela */
+    width: 100%; /* Faz com que o footer ocupe toda a largura da tela */
+    text-align: right; /* Alinha o texto do footer à direita */
+    background-color: #f1f1f1; /* Cor de fundo opcional, pode ser removida se não desejar */
+    padding: 10px; /* Adiciona um pouco de espaçamento interno, opcional */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil, opcional */
 }
 .conteudo{
     background-color: red;
@@ -37,15 +44,59 @@ h1 {
 }
 
 .medic-field{
-    bottom: 1;
     width: 99%;
-    text-align: right;
+    margin-right: 10%;
     font-family: cursive;
+    margin-left: 60%;
+    margin-top: 40%;
 }
-hr_medic{
+
+.medic-field-name{
+    margin-left: 80px;
+}
+.medic-field-crm{
+    margin-left: 130px;
+}
+
+.medic-field-name-c{
+   margin-left: 90px;
+   font-family: Helvetica;
+   font-size: 25px;
+   font-weight: bold;
+}
+.medic-field-crm-c{
+    margin-left: 110px;
+    font-family: Helvetica;
+font-weight: bold;
+}
+
+.hr_medic{
     width: 20%;
     height: 1px;
     color: black;
     margin: 0 auto;
     align: right
 }
+
+
+ .container2 {
+            display: flex; /* Usa Flexbox para alinhar as divs lado a lado */
+            width: 100%;
+        }
+        .left-div, .right-div {
+            width: 50%; /* Cada div ocupa metade da largura total */
+            padding: 10px; /* Adiciona um pouco de espaçamento interno */
+            box-sizing: border-box; /* Inclui padding e border na largura total */
+        }
+        .left-div {
+            border-right: 1px solid #ccc; /* Adiciona uma borda direita para separação */
+        }
+        .label {
+            font-weight: bold; /* Deixa o texto em negrito */
+        }
+        .label-margin {
+            margin-left: 20%; /* Adiciona margem à esquerda para alinhamento */
+        }
+        p {
+            margin: 0; /* Remove margens padrão dos parágrafos */
+        }

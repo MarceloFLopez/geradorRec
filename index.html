@@ -1,38 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preencher Formulário</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <h2 class="mt-4 mb-4">Preencher Formulário</h2>
+  <div class="container-fluid mt-2 row justify-content-md-center">
+   
 
     <!-- Formulário de Criação de Receita -->
     <form id="receitaForm" class="mb-4">
-      <div class="form-group">
-        <label for="nomePaciente">Nome do Paciente:</label>
-        <input type="text" class="form-control" id="nomePaciente" required>
+ <h2 class="mt-4 mb-4">Preencher Formulário</h2>
+      <div>
+        <label for="listaPacientes">Selecionar Paciente:</label>
+        <select class="form-control" id="listaPacientes" required>
+          <!-- Opções serão carregados os dados do paciente -->
+        </select>
+        <label for="listaClinicas">Selecionar clinica:</label>
+        <select class="form-control" id="listaClinicas">
+          <!-- Opções serão carregadas os dados da clinica -->
+        </select>
+        <label for="listaMedicos">Selecionar Medico:</label>
+        <select class="form-control" id="listaMedicos">
+          <!-- Opções serão carregadas dados do medico -->
+        </select>
+
+        <!-- Formulário de Criação de Receita -->
+        <div class="form-group">
+          <label for="medicamento">Medicamento:</label>
+          <input type="text" class="form-control" id="medicamento">
+        </div>
+        <div class="form-group">
+          <label for="qtd">quatidade:</label>
+          <input type="number" class="form-control" id="qtd">
+        </div>
+        <div class="form-group">
+          <label for="apresentacao">apresentação:</label>
+          <select class="form-control" id="apresentacao">
+            <option value=""></option>
+            <option value="caixa">caixa</option>
+            <option value="frasco">frasco</option>
+            <option value="cartela">cartela</option>
+            <option value="ampola">ampola</option>
+            <option value="falconete">falconete</option>
+            <option value="spray oral">spray oral</option>
+            <option value="spray nasal">spray nasal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="intervalo">intervalo:</label>
+          <select class="form-control" id="intervalo">
+            <option value=""></option>
+            <option value="tomar a cada 4h">a cada 4h</option>
+            <option value="tomar a cada 6h">a cada 6h</option>
+            <option value="tomar a cada 8h">a cada 8h</option>
+            <option value="tomar a cada 12h">a cada 12h</option>
+            <option value="tomar 1 vez por dia">1 por dia</option>
+            <option value="tomar 1 vez por semana">1 por semana</option>
+            <option value="tomar 1 vez por mês">1 por mês</option>
+            <option value="aplicar a cada 4h">aplicar a cada 4h</option>
+            <option value="aplicar a cada 6h">aplicar a cada 6h</option>
+            <option value="aplicar a cada 8h">aplicar a cada 8h</option>
+            <option value="aplicar a cada 12h">aplicar a cada 12h</option>
+            <option value="aplicar 1 vez por dia">aplicar a cada dia</option>
+            <option value="aplicar 1 vez por semana">aplicar a cada semana</option>
+            <option value="aplicar 1 vez por mês">aplicar a cada mês</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Visualizar Dados</button>
       </div>
-      <div class="form-group">
-        <label for="idade">Idade:</label>
-        <input type="number" class="form-control" id="idade" required>
-      </div>
-      <div class="form-group">
-        <label for="endereco">Endereço:</label>
-        <input type="text" class="form-control" id="endereco" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Visualizar Dados</button>
+
     </form>
   </div>
 
-  <!-- Scripts JavaScript -->
+  <!-- CDN Scripts JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <!-- ATENÇÃO -- Adicionar a URL do caminho do arquivo JS se não o html não vai funcionar -->
-  <script src="../teste/frontend.js"></script>
+  <script src="./frontend.js"></script>
 </body>
+
 </html>
